@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://b0yqaflto2tqw"]
+
+[ext_resource type="AudioStream" uid="uid://b6803y5v3n8ym" path="res://Audio/SoundEffects/Raw/SFX_player_goat_death.ogg" id="1_f3b56"]
+
+[resource]
+streams_count = 1
+random_pitch = 1.0
+random_volume_offset_db = 0.0
+stream_0/stream = ExtResource("1_f3b56")
+stream_0/weight = 1.0

@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://bq7ta37faffj7"]
+
+[ext_resource type="AudioStream" uid="uid://bi3wy4wh7o6x7" path="res://Audio/SoundEffects/Raw/SFX_player_main_character_shoot.ogg" id="1_epen3"]
+
+[resource]
+streams_count = 1
+stream_0/stream = ExtResource("1_epen3")
+stream_0/weight = 1.0

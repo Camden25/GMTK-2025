@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7wwyj2qrdunl"]
+
+[ext_resource type="Script" uid="uid://dy20tbe8escwh" path="res://Save System/Scripts/Save Data.gd" id="1_wprms"]
+
+[node name="Save Data" type="Node"]
+script = ExtResource("1_wprms")

@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GMTK 2025"
+run/main_scene="res://RootNodes/SceneManager.tscn"
+config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+SaveSystem="*res://Save System/Scripts/Save System.gd"
+CurrentSaveData="*res://Save System/Scripts/Current Save Data.gd"
+AudioManager="*res://RootNodes/AudioManager.tscn"
+GGS="*res://addons/ggs/classes/ggs_globals.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ggs/plugin.cfg")

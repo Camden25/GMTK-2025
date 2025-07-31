@@ -1,0 +1,164 @@
+[gd_scene load_steps=13 format=3 uid="uid://d28tsbrxf372i"]
+
+[ext_resource type="Script" uid="uid://b84p2i0irqlla" path="res://Menus/Scripts/Video Menu.gd" id="1_hog45"]
+[ext_resource type="Theme" uid="uid://ds2r3mfc2p217" path="res://Menus/Assets/Button.tres" id="2_7625h"]
+[ext_resource type="FontFile" uid="uid://bgky51hv24myd" path="res://Menus/Assets/font.otf" id="2_in55m"]
+[ext_resource type="PackedScene" uid="uid://cha8xesfthpfk" path="res://game_settings/components/switch/switch.tscn" id="2_u00nd"]
+[ext_resource type="Texture2D" uid="uid://7rnrnfes2clm" path="res://addons/ggs/assets/game_settings/display_fullscreen.svg" id="4_4d5jq"]
+[ext_resource type="Script" uid="uid://hideg8jkwymx" path="res://game_settings/settings/display_fullscreen.gd" id="5_q6pka"]
+[ext_resource type="Texture2D" uid="uid://dlvhau28nu82n" path="res://addons/ggs/assets/game_settings/display_size.svg" id="8_0risl"]
+[ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://game_settings/components/option_list/option_list.tscn" id="8_jwva7"]
+[ext_resource type="Script" uid="uid://bry370ndcddj3" path="res://game_settings/settings/display_size.gd" id="9_su0fb"]
+[ext_resource type="Theme" uid="uid://drygv0g3n8240" path="res://Menus/Assets/Label.tres" id="10_8imey"]
+
+[sub_resource type="Resource" id="Resource_nkfbq"]
+resource_name = "Fullscreen Mode"
+script = ExtResource("5_q6pka")
+size_setting = "[NONE]"
+current = true
+default = true
+name = "Fullscreen Mode"
+category = "Video Menu"
+icon = ExtResource("4_4d5jq")
+desc = "Toggle Fullscreen mode."
+value_type = 1
+value_hint = 0
+value_hint_string = ""
+
+[sub_resource type="Resource" id="Resource_oej15"]
+resource_name = "Window Size"
+script = ExtResource("9_su0fb")
+sizes = Array[Vector2]([Vector2(1920, 1080), Vector2(1600, 900), Vector2(1920, 1200), Vector2(1280, 1024), Vector2(1366, 768)])
+current = 0
+default = 0
+name = "Window Size"
+category = "Video Menu"
+icon = ExtResource("8_0risl")
+desc = "Change window size by setting its width and height to specific values."
+value_type = 2
+value_hint = 2
+value_hint_string = "1920 x 1080,1600 x 900,1920 x 1200,1280 x 1024,1366 x 768"
+
+[node name="Video Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hog45")
+
+[node name="VideoSettings" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.3
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("10_8imey")
+theme_override_fonts/font = ExtResource("2_in55m")
+theme_override_font_sizes/font_size = 128
+text = "Video Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("10_8imey")
+theme_override_font_sizes/font_size = 48
+text = "Fullscreen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Switch" parent="HBoxContainer/VBoxContainer" instance=ExtResource("2_u00nd")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+setting = SubResource("Resource_nkfbq")
+apply_on_change = true
+
+[node name="Btn" parent="HBoxContainer/VBoxContainer/Switch" index="0"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Spacer3" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="WindowSize" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("10_8imey")
+theme_override_font_sizes/font_size = 48
+text = "Window Size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionList" parent="HBoxContainer/VBoxContainer" instance=ExtResource("8_jwva7")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+setting = SubResource("Resource_oej15")
+apply_on_change = true
+
+[node name="Btn" parent="HBoxContainer/VBoxContainer/OptionList" index="0"]
+theme_override_fonts/font = ExtResource("2_in55m")
+item_count = 5
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600 x 900"
+popup/item_1/id = 1
+popup/item_2/text = "1920 x 1200"
+popup/item_2/id = 2
+popup/item_3/text = "1280 x 1024"
+popup/item_3/id = 3
+popup/item_4/text = "1366 x 768"
+popup/item_4/id = 4
+
+[node name="Spacer4" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_7625h")
+theme_override_font_sizes/font_size = 48
+text = "Back"
+
+[node name="Spacer6" type="Control" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="HBoxContainer/VBoxContainer/Switch"]
+[editable path="HBoxContainer/VBoxContainer/OptionList"]

@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://bfxgbj4jpa4kj"]
+
+[ext_resource type="AudioStream" uid="uid://xrbx27kslxg0" path="res://Audio/SoundEffects/Raw/SFX_player_goat_hit.ogg" id="1_qokf6"]
+
+[resource]
+streams_count = 1
+stream_0/stream = ExtResource("1_qokf6")
+stream_0/weight = 1.0
