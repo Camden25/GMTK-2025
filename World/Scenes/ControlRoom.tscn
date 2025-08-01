@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu3tpbs8qjc00"]
+[gd_scene load_steps=5 format=3 uid="uid://cu3tpbs8qjc00"]
 
+[ext_resource type="Texture2D" uid="uid://bw17jj8s8qqj6" path="res://World/Assets/ControlRoom/ControlRoom.png" id="1_2kv3b"]
 [ext_resource type="Script" uid="uid://bmb6hebijf2c1" path="res://addons/ProCam2D/scripts/pcam_room.gd" id="1_6lxmi"]
+[ext_resource type="PackedScene" uid="uid://djd1qvu5xkrox" path="res://TaskSystem/Tasks/FixWires/FixWiresTask.tscn" id="3_73mda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73mda"]
+size = Vector2(640, 54)
 
 [node name="CommandRoom" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(3.49999, 2.50001)
+scale = Vector2(0.308088, 0.30737)
+texture = ExtResource("1_2kv3b")
 
 [node name="PCamRoom" type="Node2D" parent="."]
 script = ExtResource("1_6lxmi")
@@ -10,3 +21,12 @@ room_size = Vector2(640, 360)
 zoom = 1.0
 open_sides = 0
 metadata/_custom_type_script = "uid://bmb6hebijf2c1"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 156)
+shape = SubResource("RectangleShape2D_73mda")
+
+[node name="FixWiresTask" parent="." instance=ExtResource("3_73mda")]
+position = Vector2(-16, 78)

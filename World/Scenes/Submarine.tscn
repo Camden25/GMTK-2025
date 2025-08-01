@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmbbxl57vpgp5"]
+[gd_scene load_steps=7 format=3 uid="uid://cmbbxl57vpgp5"]
 
 [ext_resource type="Script" uid="uid://cxolcwmkypb8d" path="res://World/Scripts/test.gd" id="1_ixehv"]
 [ext_resource type="PackedScene" uid="uid://c4krts0c4dnh2" path="res://Player/Scenes/Player.tscn" id="1_min8j"]
 [ext_resource type="Script" uid="uid://bvc8y4ewa56xf" path="res://addons/ProCam2D/scripts/procam2d.gd" id="2_ixehv"]
 [ext_resource type="PackedScene" uid="uid://csfqisqmliovb" path="res://World/Scenes/SleepingCabin.tscn" id="2_r38ai"]
 [ext_resource type="PackedScene" uid="uid://cu3tpbs8qjc00" path="res://World/Scenes/ControlRoom.tscn" id="3_ixehv"]
+[ext_resource type="PackedScene" uid="uid://6yfvsw1xrk6s" path="res://TaskSystem/Scenes/TaskManager.tscn" id="6_ikr1c"]
 
 [node name="Submarine" type="Node2D"]
 script = ExtResource("1_ixehv")
@@ -49,3 +50,5 @@ metadata/_custom_type_script = "uid://bvc8y4ewa56xf"
 
 [node name="Dorms" parent="." instance=ExtResource("2_r38ai")]
 position = Vector2(640, 0)
+
+[node name="TaskManager" parent="." instance=ExtResource("6_ikr1c")]
