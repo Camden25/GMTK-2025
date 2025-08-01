@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://djd1qvu5xkrox"]
+
+[ext_resource type="Script" uid="uid://c3onyscnghvdr" path="res://TaskSystem/Tasks/FixWires/FixWiresTask.gd" id="1_jageg"]
+[ext_resource type="PackedScene" uid="uid://qmaf2qbi3v54" path="res://TaskSystem/Scenes/Interactable.tscn" id="2_xxrgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxrgs"]
+size = Vector2(94, 76)
+
+[node name="FixWiresTask" type="Node2D"]
+script = ExtResource("1_jageg")
+task_name = "Fix Wires"
+
+[node name="Interactable" parent="." instance=ExtResource("2_xxrgs")]
+node_trigger_path = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_xxrgs")
