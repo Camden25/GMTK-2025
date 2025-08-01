@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3tpbs8qjc00"]
+
+[ext_resource type="Script" uid="uid://bmb6hebijf2c1" path="res://addons/ProCam2D/scripts/pcam_room.gd" id="1_6lxmi"]
+
+[node name="CommandRoom" type="Node2D"]
+
+[node name="PCamRoom" type="Node2D" parent="."]
+script = ExtResource("1_6lxmi")
+room_size = Vector2(640, 360)
+zoom = 1.0
+open_sides = 0
+metadata/_custom_type_script = "uid://bmb6hebijf2c1"

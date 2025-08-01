@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bic2cfnissf56"]
+
+[ext_resource type="Script" uid="uid://cxbmdkbtydpoy" path="res://TaskSystem/Scripts/Task.gd" id="1_3nkvv"]
+
+[node name="Task" type="Area2D"]
+script = ExtResource("1_3nkvv")

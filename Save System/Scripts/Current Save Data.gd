@@ -1,5 +1,5 @@
 extends Node
 
-var playtime = 0.0
-var spawn_loaction = preload("res://Menus/Scenes/MenuManager.tscn")
-var spawn_name = "menu"
+var playtime: float = 0.0
+var spawn_loaction: PackedScene = preload("res://Menus/Scenes/MenuManager.tscn")
+var spawn_name: String = "menu"

@@ -1,0 +1,2 @@
+extends PlatformerController2D
+class_name Player

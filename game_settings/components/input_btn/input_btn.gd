@@ -44,10 +44,10 @@ func _on_Btn_pressed() -> void:
 func _on_ICW_input_selected(input: InputEvent) -> void:
 	if ICW.src != self:
 		return
-	
+
 	setting_value = input_helper.get_string_from_event(input)
 	_set_btn_text_or_icon(input)
-	
+
 	if apply_on_change:
 		apply_setting()
 
@@ -57,13 +57,13 @@ func _on_ICW_input_selected(input: InputEvent) -> void:
 func _set_btn_text_or_icon(event: InputEvent) -> void:
 	if use_icons and type == Type.GAMEPAD:
 		Btn.icon = input_helper.get_event_as_icon(event, icon_db)
-		
+
 		if Btn.icon == null:
 			Btn.text = input_helper.get_event_as_text(event) + "  "
 		else:
 			Btn.text = ""
 		return
-	
+
 	Btn.icon = null
 	Btn.text = input_helper.get_event_as_text(event) + "  "
 

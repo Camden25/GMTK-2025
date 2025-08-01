@@ -1,3 +1,14 @@
-Sprite2D
+Node
+Task
+Area2D
+AnimationTree
+ColorRect
+Marker2D
+AnimationPlayer
 CollisionShape2D
-CharacterBody2D
+StaticBody2D
+PCamTarget
+PCamRoom
+ProCam2D
+Camera2D
+Sprite2D

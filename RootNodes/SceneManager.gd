@@ -1,20 +1,23 @@
 extends Node
+class_name SceneManager
 
-var current_scene
+var current_scene: Node
 
-@onready var menu_manager_scene = preload("res://Menus/Scenes/MenuManager.tscn")
+@onready var menu_manager_scene: PackedScene = load("res://Menus/Scenes/MenuManager.tscn")
 
-func _ready():
-	var menu_manager_instance = menu_manager_scene.instantiate()
+func _ready() -> void:
+	var menu_manager_instance: MenuManager = menu_manager_scene.instantiate()
 	add_child(menu_manager_instance)
 	current_scene = menu_manager_instance
 
-func _process(delta):
+
+func _process(delta: float) -> void:
 	if SaveSystem.current_save != 0 and SaveSystem.current_save != null:
 		CurrentSaveData.playtime += delta
 
-func swap_scene(new_scene):
-	var new_scene_instance = new_scene.instantiate()
+
+func swap_scene(new_scene: PackedScene) -> void:
+	var new_scene_instance: Node = new_scene.instantiate()
 	$SceneTransitions/AnimationPlayer.play("FadeToBlack")
 	await $SceneTransitions/AnimationPlayer.animation_finished
 	remove_child(current_scene)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://csfqisqmliovb"]
+
+[ext_resource type="Texture2D" uid="uid://bcdns13e04n6f" path="res://World/Assets/SleepingCabin/sub-sleep-cabin-normal.png" id="1_5fio5"]
+[ext_resource type="Script" uid="uid://bmb6hebijf2c1" path="res://addons/ProCam2D/scripts/pcam_room.gd" id="1_7n23o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n23o"]
+size = Vector2(640, 54)
+
+[node name="SleepingCabin" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+texture = ExtResource("1_5fio5")
+
+[node name="PCamRoom" type="Node2D" parent="."]
+script = ExtResource("1_7n23o")
+room_size = Vector2(640, 360)
+zoom = 1.0
+open_sides = 0
+metadata/_custom_type_script = "uid://bmb6hebijf2c1"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 156)
+shape = SubResource("RectangleShape2D_7n23o")

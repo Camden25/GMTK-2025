@@ -98,6 +98,7 @@ script = ExtResource("1_iaifx")
 [node name="Music" type="Node" parent="."]
 
 [node name="Main" type="AudioStreamPlayer" parent="Music"]
+bus = &"Music"
 
 [node name="AudioTransitions" type="AnimationPlayer" parent="."]
 libraries = {
