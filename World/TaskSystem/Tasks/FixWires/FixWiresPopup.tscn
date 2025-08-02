@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dyjwrokb1xtti"]
 
-[ext_resource type="Script" uid="uid://ceatittuq2yw8" path="res://TaskSystem/Tasks/FixWires/FixWiresPopup.gd" id="1_qfg07"]
-[ext_resource type="PackedScene" uid="uid://bdso2j6mxhk01" path="res://TaskSystem/Tasks/FixWires/Wire.tscn" id="2_83wgo"]
-[ext_resource type="PackedScene" uid="uid://t7dma52t3q5k" path="res://TaskSystem/Tasks/FixWires/WireTarget.tscn" id="3_y3fov"]
+[ext_resource type="Script" uid="uid://ceatittuq2yw8" path="res://World/TaskSystem/Tasks/FixWires/FixWiresPopup.gd" id="1_qfg07"]
+[ext_resource type="PackedScene" uid="uid://bdso2j6mxhk01" path="res://World/TaskSystem/Tasks/FixWires/Wire.tscn" id="2_83wgo"]
+[ext_resource type="PackedScene" uid="uid://t7dma52t3q5k" path="res://World/TaskSystem/Tasks/FixWires/WireTarget.tscn" id="3_y3fov"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfg07"]
 bg_color = Color(0.16, 0.16, 0.16, 1)

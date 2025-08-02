@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bic2cfnissf56"]
 
-[ext_resource type="Script" uid="uid://cxbmdkbtydpoy" path="res://TaskSystem/Scripts/Task.gd" id="1_3nkvv"]
-[ext_resource type="PackedScene" uid="uid://qmaf2qbi3v54" path="res://TaskSystem/Scenes/Interactable.tscn" id="2_5cbnn"]
+[ext_resource type="Script" uid="uid://cxbmdkbtydpoy" path="res://World/TaskSystem/Scripts/Task.gd" id="1_3nkvv"]
+[ext_resource type="PackedScene" uid="uid://qmaf2qbi3v54" path="res://World/TaskSystem/Scenes/Interactable.tscn" id="2_5cbnn"]
 
 [node name="Task" type="Node2D"]
 process_mode = 3

@@ -1,6 +1,5 @@
-res://TaskSystem/Scripts
-res://TaskSystem/Tasks/FixWires
-res://Player/Scripts
+res://UI/Scripts
 res://World/Scripts
+res://Player/Scripts
 res://RootNodes
 res://Save System/Scripts

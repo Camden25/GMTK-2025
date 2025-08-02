@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://djd1qvu5xkrox"]
 
-[ext_resource type="Script" uid="uid://c3onyscnghvdr" path="res://TaskSystem/Tasks/FixWires/FixWiresTask.gd" id="1_jageg"]
-[ext_resource type="PackedScene" uid="uid://qmaf2qbi3v54" path="res://TaskSystem/Scenes/Interactable.tscn" id="2_xxrgs"]
-[ext_resource type="PackedScene" uid="uid://dyjwrokb1xtti" path="res://TaskSystem/Tasks/FixWires/FixWiresPopup.tscn" id="3_57yqw"]
+[ext_resource type="Script" uid="uid://c3onyscnghvdr" path="res://World/TaskSystem/Tasks/FixWires/FixWiresTask.gd" id="1_jageg"]
+[ext_resource type="PackedScene" uid="uid://qmaf2qbi3v54" path="res://World/TaskSystem/Scenes/Interactable.tscn" id="2_xxrgs"]
+[ext_resource type="PackedScene" uid="uid://dyjwrokb1xtti" path="res://World/TaskSystem/Tasks/FixWires/FixWiresPopup.tscn" id="3_57yqw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxrgs"]
 size = Vector2(94, 76)
@@ -14,8 +14,10 @@ task_name = "Fix Wires"
 
 [node name="Interactable" parent="." node_paths=PackedStringArray("node_trigger") instance=ExtResource("2_xxrgs")]
 node_trigger = NodePath("..")
+interaction_text = "Fix Wires"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 38)
 shape = SubResource("RectangleShape2D_xxrgs")
 
 [node name="PopupUI" type="CanvasLayer" parent="."]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bmb6hebijf2c1" path="res://addons/ProCam2D/scripts/pcam_room.gd" id="1_6lxmi"]
 [ext_resource type="Texture2D" uid="uid://3om2xtt1yuec" path="res://World/Assets/ControlRoom/sub-control-panel-normal.png" id="1_73mda"]
-[ext_resource type="PackedScene" uid="uid://djd1qvu5xkrox" path="res://TaskSystem/Tasks/FixWires/FixWiresTask.tscn" id="3_73mda"]
+[ext_resource type="PackedScene" uid="uid://djd1qvu5xkrox" path="res://World/TaskSystem/Tasks/FixWires/FixWiresTask.tscn" id="3_73mda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73mda"]
 size = Vector2(640, 54)
@@ -10,6 +10,7 @@ size = Vector2(640, 54)
 [node name="CommandRoom" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1.3, 1.1, 1.1, 1)
 z_index = -10
 texture = ExtResource("1_73mda")
 
@@ -27,4 +28,4 @@ position = Vector2(0, 156)
 shape = SubResource("RectangleShape2D_73mda")
 
 [node name="FixWiresTask" parent="." instance=ExtResource("3_73mda")]
-position = Vector2(-16, 78)
+position = Vector2(-8, 53)
