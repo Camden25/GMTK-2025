@@ -21,3 +21,4 @@ func do_task() -> void:
 func complete_task() -> void:
 	is_completed = true
 	task_completed.emit(self)
+	$Interactable.disabled = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cu3tpbs8qjc00"]
 
-[ext_resource type="Texture2D" uid="uid://bw17jj8s8qqj6" path="res://World/Assets/ControlRoom/ControlRoom.png" id="1_2kv3b"]
 [ext_resource type="Script" uid="uid://bmb6hebijf2c1" path="res://addons/ProCam2D/scripts/pcam_room.gd" id="1_6lxmi"]
+[ext_resource type="Texture2D" uid="uid://3om2xtt1yuec" path="res://World/Assets/ControlRoom/sub-control-panel-normal.png" id="1_73mda"]
 [ext_resource type="PackedScene" uid="uid://djd1qvu5xkrox" path="res://TaskSystem/Tasks/FixWires/FixWiresTask.tscn" id="3_73mda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73mda"]
@@ -11,9 +11,7 @@ size = Vector2(640, 54)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10
-position = Vector2(3.49999, 2.50001)
-scale = Vector2(0.308088, 0.30737)
-texture = ExtResource("1_2kv3b")
+texture = ExtResource("1_73mda")
 
 [node name="PCamRoom" type="Node2D" parent="."]
 script = ExtResource("1_6lxmi")

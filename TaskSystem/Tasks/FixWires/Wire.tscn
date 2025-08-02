@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdso2j6mxhk01"]
+
+[ext_resource type="Script" uid="uid://da3wr1gip34kk" path="res://TaskSystem/Tasks/FixWires/Wire.gd" id="1_geq3i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tc6u"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_geq3i"]
+
+[sub_resource type="Gradient" id="Gradient_geq3i"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.778481, 1)
+colors = PackedColorArray(0.45, 0.45, 0.45, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4tc6u"]
+gradient = SubResource("Gradient_geq3i")
+width = 14
+height = 14
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Wire" type="Node2D" node_paths=PackedStringArray("line", "end_handle", "start_point")]
+script = ExtResource("1_geq3i")
+line = NodePath("Line2D")
+end_handle = NodePath("EndHandle")
+start_point = NodePath("StartPoint")
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_filter = 1
+points = PackedVector2Array(0, 0, 0, -46)
+width = 12.0
+default_color = Color(0.7, 0.175, 0.175, 1)
+joint_mode = 2
+begin_cap_mode = 2
+
+[node name="StartPoint" type="Marker2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPoint"]
+shape = SubResource("CircleShape2D_4tc6u")
+
+[node name="EndHandle" type="Area2D" parent="."]
+position = Vector2(0, -46)
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndHandle"]
+shape = SubResource("CircleShape2D_geq3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="EndHandle"]
+texture = SubResource("GradientTexture2D_4tc6u")

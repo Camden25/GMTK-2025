@@ -1,14 +1,28 @@
-res://World/Scenes/Submarine.tscn
+res://TaskSystem/Tasks/FixWires/FixWiresTask.tscn
 res://addons/ggs/editor/_theme/ggs_theme.tres
-res://TaskSystem/Scripts/TaskManager.gd
+res://TaskSystem/Scenes/Interactable.tscn
+res://TaskSystem/Scripts/Interactable.gd
+res://TaskSystem/Tasks/FixWires/FixWiresTask.gd
+res://TaskSystem/Scenes/Task.tscn
+res://TaskSystem/Scenes/TaskManager.tscn
 res://Save System/Scenes/Save Data.tscn
 res://RootNodes/SceneManager.tscn
 res://RootNodes/AudioManager.tscn
 res://Menus/Scenes/MenuManager.tscn
 res://Player/Scenes/Player.tscn
+res://World/Scenes/Submarine.tscn
 res://World/Scenes/SleepingCabin.tscn
 res://World/Scenes/ControlRoom.tscn
-res://TaskSystem/Scenes/Task.tscn
-res://TaskSystem/Tasks/FixWires/FixWiresTask.tscn
-res://TaskSystem/Scenes/TaskManager.tscn
-res://TaskSystem/Scenes/Interactable.tscn
+res://TaskSystem/Tasks/FixWires/FixWiresPopup.tscn
+res://TaskSystem/Tasks/FixWires/Wire.tscn
+res://TaskSystem/Tasks/FixWires/Wire.gd
+res://TaskSystem/Tasks/FixWires/FixWiresPopup.gd
+res://TaskSystem/Tasks/FixWires/WireTargetPoint.tscn
+res://TaskSystem/Tasks/FixWires/WireTargetPoint.gd
+res://TaskSystem/Tasks/FixWires/WireTarget.tscn
+res://TaskSystem/Scripts/MouseCollider.gd
+res://TaskSystem/Scripts/Task.gd
+res://Save System/Scenes/SaveFileComponent.tscn
+res://Menus/Scripts/MenuManager.gd
+res://Menus/Scripts/Main Menu.gd
+res://Menus/Scenes/Main Menu.tscn

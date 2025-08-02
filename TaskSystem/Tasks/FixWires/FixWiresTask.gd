@@ -1,7 +1,16 @@
 extends Task
 
+@onready var popup: CanvasLayer = $PopupUI
+
 func do_task() -> void:
-	# Add a minigame or animation here
-	print("Fixing wires...")
-	await get_tree().create_timer(2.0).timeout  # Simulate delay
+	popup.visible = true
+	get_tree().paused = true
+
+func succeeded_task() -> void:
+	popup.visible = false
+	get_tree().paused = false
 	complete_task()
+
+func failed_task() -> void:
+	popup.visible = false
+	get_tree().paused = false
