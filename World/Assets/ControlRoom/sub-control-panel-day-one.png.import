@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw17jj8s8qqj6"
-path="res://.godot/imported/ControlRoom.png-d3bb07313781f735d14b807e1d30bdad.ctex"
+uid="uid://ccdf2jma1iwqj"
+path="res://.godot/imported/sub-control-panel-day-one.png-d83e099ed205d7593ec1ff74f6e9ef12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://World/Assets/ControlRoom/ControlRoom.png"
-dest_files=["res://.godot/imported/ControlRoom.png-d3bb07313781f735d14b807e1d30bdad.ctex"]
+source_file="res://World/Assets/ControlRoom/sub-control-panel-day-one.png"
+dest_files=["res://.godot/imported/sub-control-panel-day-one.png-d83e099ed205d7593ec1ff74f6e9ef12.ctex"]
 
 [params]
 

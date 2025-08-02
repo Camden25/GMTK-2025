@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://1jqdtgdturn1" path="res://TaskSystem/Scripts/TaskManager.gd" id="1_ca102"]
 
 [node name="TaskManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_ca102")

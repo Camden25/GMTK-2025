@@ -11,7 +11,7 @@
 script = ExtResource("1_ixehv")
 
 [node name="Player" parent="." instance=ExtResource("1_min8j")]
-position = Vector2(406, 66)
+position = Vector2(94, 66)
 
 [node name="ProCam2D" type="Node2D" parent="."]
 z_index = 4096

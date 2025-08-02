@@ -6,7 +6,6 @@ signal active_menu_faded
 @export var menu_music: AudioStream
 
 var main_menu: PackedScene = preload("res://Menus/Scenes/Main Menu.tscn")
-var saves_menu: PackedScene = preload("res://Save System/Scenes/SaveSelection.tscn")
 var settings_menu: PackedScene = preload("res://Menus/Scenes/Settings Menu.tscn")
 var controls_menu: PackedScene = preload("res://Menus/Scenes/Controls Menu.tscn")
 var video_menu: PackedScene = preload("res://Menus/Scenes/Video Menu.tscn")
@@ -16,6 +15,7 @@ var quit_menu: PackedScene = preload("res://Menus/Scenes/Quit Menu.tscn")
 var target_modulate_alpha: float = 1
 
 @onready var active_menu: Control = main_menu.instantiate()
+@onready var scene_manager: SceneManager = get_tree().get_nodes_in_group("SceneManager")[0]
 
 func _ready() -> void:
 	add_child(active_menu)

@@ -1,4 +1,5 @@
 res://TaskSystem/Scripts
+res://TaskSystem/Tasks/FixWires
 res://Player/Scripts
 res://World/Scripts
 res://RootNodes
