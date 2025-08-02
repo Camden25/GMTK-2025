@@ -2,7 +2,7 @@ extends Control
 
 var menu_open: bool = false
 
-@onready var scene_manager: SceneManager = get_tree().get_nodes_in_group("Scene Manager")[0]
+@onready var scene_manager: SceneManager = get_tree().get_nodes_in_group("SceneManager")[0]
 
 func _process(_delta: float) -> void:
 	menu_open = visible

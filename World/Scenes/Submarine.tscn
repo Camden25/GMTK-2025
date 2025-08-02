@@ -1,14 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmbbxl57vpgp5"]
+[gd_scene load_steps=15 format=3 uid="uid://x4304bjikfpx"]
 
-[ext_resource type="Script" uid="uid://cxolcwmkypb8d" path="res://World/Scripts/test.gd" id="1_ixehv"]
 [ext_resource type="PackedScene" uid="uid://c4krts0c4dnh2" path="res://Player/Scenes/Player.tscn" id="1_min8j"]
 [ext_resource type="Script" uid="uid://bvc8y4ewa56xf" path="res://addons/ProCam2D/scripts/procam2d.gd" id="2_ixehv"]
 [ext_resource type="PackedScene" uid="uid://csfqisqmliovb" path="res://World/Scenes/SleepingCabin.tscn" id="2_r38ai"]
 [ext_resource type="PackedScene" uid="uid://cu3tpbs8qjc00" path="res://World/Scenes/ControlRoom.tscn" id="3_ixehv"]
-[ext_resource type="PackedScene" uid="uid://6yfvsw1xrk6s" path="res://TaskSystem/Scenes/TaskManager.tscn" id="6_ikr1c"]
+[ext_resource type="Script" uid="uid://clf87tg5nspmf" path="res://World/DaySystem/Day.gd" id="6_1smlc"]
+[ext_resource type="Script" uid="uid://0llkkc0gr0t4" path="res://World/DaySystem/DayManager.gd" id="6_8rji3"]
+[ext_resource type="Script" uid="uid://1jqdtgdturn1" path="res://World/TaskSystem/Scripts/TaskManager.gd" id="6_ikr1c"]
+[ext_resource type="Script" uid="uid://7qn27oblau5i" path="res://World/DaySystem/TimeManager.gd" id="7_8rji3"]
+[ext_resource type="Script" uid="uid://dq0l3v4h0x1hw" path="res://World/EventSystem/Event.gd" id="7_sicfu"]
+[ext_resource type="Script" uid="uid://diqyvfuudwrgv" path="res://World/EventSystem/GameEventManager.gd" id="10_fshen"]
+[ext_resource type="PackedScene" uid="uid://dkdstija3lby5" path="res://UI/Scenes/UI.tscn" id="11_324f7"]
+
+[sub_resource type="GDScript" id="GDScript_ixehv"]
+script/source = "extends Node2D
+
+func _ready() -> void:
+	#Engine.time_scale = 0.1
+	pass
+"
+
+[sub_resource type="Resource" id="Resource_fshen"]
+script = ExtResource("6_1smlc")
+normal_tasks = Array[String](["Fix Wires"])
+emergency_tasks_count = 0
+scheduled_events = Dictionary[int, ExtResource("7_sicfu")]({})
+metadata/_custom_type_script = "uid://clf87tg5nspmf"
+
+[sub_resource type="Environment" id="Environment_324f7"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.95
+glow_blend_mode = 0
+adjustment_enabled = true
 
 [node name="Submarine" type="Node2D"]
-script = ExtResource("1_ixehv")
+script = SubResource("GDScript_ixehv")
 
 [node name="Player" parent="." instance=ExtResource("1_min8j")]
 position = Vector2(94, 66)
@@ -51,4 +79,43 @@ metadata/_custom_type_script = "uid://bvc8y4ewa56xf"
 [node name="Dorms" parent="." instance=ExtResource("2_r38ai")]
 position = Vector2(640, 0)
 
-[node name="TaskManager" parent="." instance=ExtResource("6_ikr1c")]
+[node name="TaskManager" type="Node" parent="."]
+script = ExtResource("6_ikr1c")
+metadata/_custom_type_script = "uid://1jqdtgdturn1"
+
+[node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("task_manager", "time_manager")]
+script = ExtResource("6_8rji3")
+days = Array[ExtResource("6_1smlc")]([SubResource("Resource_fshen")])
+task_manager = NodePath("../TaskManager")
+time_manager = NodePath("../TimeManager")
+metadata/_custom_type_script = "uid://0llkkc0gr0t4"
+
+[node name="TimeManager" type="Node" parent="." node_paths=PackedStringArray("day_manager", "game_event_manager")]
+script = ExtResource("7_8rji3")
+time_speed = 10.0
+day_manager = NodePath("../DayManager")
+game_event_manager = NodePath("../GameEventManager")
+metadata/_custom_type_script = "uid://7qn27oblau5i"
+
+[node name="GameEventManager" type="Node" parent="."]
+script = ExtResource("10_fshen")
+metadata/_custom_type_script = "uid://diqyvfuudwrgv"
+
+[node name="UI" parent="." instance=ExtResource("11_324f7")]
+
+[node name="GUI" parent="UI" index="0" node_paths=PackedStringArray("player", "time_manager", "day_manager", "task_manager")]
+player = NodePath("../../Player")
+time_manager = NodePath("../../TimeManager")
+day_manager = NodePath("../../DayManager")
+task_manager = NodePath("../../TaskManager")
+
+[node name="PostProcessing" parent="UI" index="1"]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_324f7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.585938, 0.585938, 0.585938, 1)
+
+[editable path="UI"]

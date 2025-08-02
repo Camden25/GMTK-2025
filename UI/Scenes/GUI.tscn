@@ -5,65 +5,18 @@
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_og774")
 
-[node name="Health Bar" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="Background" type="ColorRect" parent="Health Bar"]
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="Midground" type="ColorRect" parent="Health Bar"]
-offset_left = 5.0
+[node name="Current Day" type="Label" parent="."]
+offset_left = 10.0
 offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 35.0
-color = Color(0.427451, 0, 0, 1)
+offset_right = 152.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 48
+text = "Day 0"
 
-[node name="Foreground" type="ColorRect" parent="Health Bar"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 35.0
-color = Color(0.823529, 0, 0, 1)
-
-[node name="Main Character Health Bar" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="Background" type="ColorRect" parent="Main Character Health Bar"]
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="Midground" type="ColorRect" parent="Main Character Health Bar"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 35.0
-color = Color(0.427451, 0, 0, 1)
-
-[node name="Foreground" type="ColorRect" parent="Main Character Health Bar"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 35.0
-color = Color(0.823529, 0, 0, 1)
-
-[node name="Enemy Health Bar" type="CanvasLayer" parent="."]
-follow_viewport_enabled = true
-
-[node name="Background" type="ColorRect" parent="Enemy Health Bar"]
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
-
-[node name="Midground" type="ColorRect" parent="Enemy Health Bar"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 35.0
-color = Color(0.427451, 0, 0, 1)
-
-[node name="Foreground" type="ColorRect" parent="Enemy Health Bar"]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 5.0
-offset_bottom = 35.0
-color = Color(0.823529, 0, 0, 1)
+[node name="Current Time" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 69.0
+offset_right = 133.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 48
+text = "00:00"

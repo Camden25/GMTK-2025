@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://qmaf2qbi3v54"]
 
-[ext_resource type="Script" uid="uid://cfp8wsg83x44g" path="res://TaskSystem/Scripts/Interactable.gd" id="1_d5typ"]
+[ext_resource type="Script" uid="uid://cfp8wsg83x44g" path="res://World/TaskSystem/Scripts/Interactable.gd" id="1_d5typ"]
 
 [sub_resource type="SystemFont" id="SystemFont_d5typ"]
 font_names = PackedStringArray("Franklin Gothic")
@@ -17,7 +17,7 @@ offset_top = -37.0
 offset_right = 79.0
 offset_bottom = 37.0
 theme_override_fonts/font = SubResource("SystemFont_d5typ")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1

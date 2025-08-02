@@ -1,19 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8wdbu1x8awvb"]
+[gd_scene load_steps=3 format=3 uid="uid://b8wdbu1x8awvb"]
 
 [ext_resource type="Shader" uid="uid://cs2myk6i5yg8u" path="res://UI/Scripts/Vignette.gdshader" id="1_1fmjr"]
-[ext_resource type="Shader" uid="uid://tkj2dkjojmed" path="res://UI/Scripts/Bloom.gdshader" id="2_nf7fa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4you"]
 shader = ExtResource("1_1fmjr")
 shader_parameter/vignette_intensity = 0.5
 shader_parameter/vignette_opacity = 0.2
 shader_parameter/vignette_rgb = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqojd"]
-shader = ExtResource("2_nf7fa")
-shader_parameter/bloomRadius = 0.5
-shader_parameter/bloomThreshold = 0.5
-shader_parameter/bloomIntensity = 0.5
 
 [node name="PostProcessing" type="CanvasLayer"]
 
@@ -22,9 +15,3 @@ material = SubResource("ShaderMaterial_f4you")
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
-
-[node name="Bloom" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_uqojd")
-offset_right = 1920.0
-offset_bottom = 1080.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://c4krts0c4dnh2"]
 
-[ext_resource type="Texture2D" uid="uid://023g0kujk3c4" path="res://Player/Assets/Player.png" id="1_4pdrp"]
+[ext_resource type="Texture2D" uid="uid://b38jw2xf0oern" path="res://Player/Assets/Player.png" id="1_4pdrp"]
 [ext_resource type="Script" uid="uid://dpntggr6oclbx" path="res://Player/Scripts/player.gd" id="1_nk6jx"]
 [ext_resource type="Script" uid="uid://brsl5m4b6xpkn" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_hql3v"]
 [ext_resource type="Script" uid="uid://ed4cbrer8p11" path="res://Player/Scripts/state_determination.gd" id="4_nk6jx"]
@@ -333,7 +333,7 @@ shape = SubResource("CapsuleShape2D_0qu43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4pdrp")
-hframes = 10
+hframes = 17
 frame = 1
 
 [node name="PCamTarget" type="Node2D" parent="."]
