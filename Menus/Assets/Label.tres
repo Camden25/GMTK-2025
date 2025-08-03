@@ -4,4 +4,4 @@
 
 [resource]
 default_font = ExtResource("1_iucas")
-Label/colors/font_color = Color(0.294118, 0.294118, 0.333333, 1)
+Label/colors/font_color = Color(1, 1, 1, 1)

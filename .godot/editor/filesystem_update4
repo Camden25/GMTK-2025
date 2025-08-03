@@ -2,18 +2,24 @@ res://Player/Scenes/Player.tscn
 res://addons/ggs/editor/_theme/ggs_theme.tres
 res://UI/Scripts/Vignette.gdshader
 res://UI/Scripts/Bloom.gdshader
-res://Monster/Scenes/Monster.tscn
-res://Monster/Scripts/Monster.gd
 res://World/Scenes/Submarine.tscn
-res://Player/Scripts/state_determination.gd
 res://UI/Scenes/UI.tscn
 res://UI/Scenes/GUI.tscn
 res://World/TaskSystem/Tasks/FixWires/FixWiresTask.tscn
 res://World/Scenes/ControlRoom.tscn
 res://UI/Scenes/PostProcessing.tscn
 res://World/TaskSystem/Tasks/FixWires/FixWiresPopup.tscn
-res://Player/Scripts/animation_controller.gd
-res://Player/Scripts/player.gd
-res://Player/Scripts/PlatformerController.gd
-res://UI/Scripts/GUI.gd
-res://UI/Scenes/TaskUIObject.tscn
+res://Monster/Scenes/Monster.tscn
+res://World/TaskSystem/Scenes/Interactable.tscn
+res://addons/ggs/plugin_data.tres
+res://Menus/Scenes/Main Menu.tscn
+res://Menus/Scenes/Audio Menu.tscn
+res://Menus/Scenes/MenuManager.tscn
+res://Menus/Scripts/Main Menu.gd
+res://UI/Scenes/PauseMenu.tscn
+res://World/Scenes/SleepingCabin.tscn
+res://Menus/Scenes/Settings Menu.tscn
+res://Menus/Assets/Label.tres
+res://Menus/Assets/Button.tres
+res://Menus/Scenes/Quit Menu.tscn
+res://Menus/Scenes/Video Menu.tscn

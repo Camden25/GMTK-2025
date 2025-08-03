@@ -11,8 +11,8 @@
 [resource]
 default_font = ExtResource("1_iy8et")
 default_font_size = 64
-Button/colors/font_color = Color(0.215686, 0.215686, 0.247059, 1)
-Button/colors/font_hover_color = Color(0.294118, 0.294118, 0.333333, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.574219, 0.574219, 0.574219, 1)
 Button/colors/font_pressed_color = Color(0.262745, 0.262745, 0.298039, 1)
 Button/styles/hover = SubResource("StyleBoxEmpty_qyw23")
 Button/styles/normal = SubResource("StyleBoxEmpty_wg7li")

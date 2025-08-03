@@ -35,14 +35,6 @@ anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control2" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -82,10 +74,6 @@ size_flags_vertical = 6
 theme = ExtResource("3_b02dn")
 theme_override_font_sizes/font_size = 96
 text = "Back"
-
-[node name="Control3" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [connection signal="pressed" from="HBoxContainer/Buttons/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Buttons/VideoButton" to="." method="_on_video_button_pressed"]

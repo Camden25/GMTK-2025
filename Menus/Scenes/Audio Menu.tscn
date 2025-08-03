@@ -12,7 +12,7 @@
 resource_name = "Master Volume"
 script = ExtResource("6_2t246")
 bus_name = "Master"
-current = 78.0
+current = 0.0
 default = 80.0
 name = "Master Volume"
 category = "Audio Menu"
@@ -75,20 +75,17 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.3
-anchor_right = 1.0
-anchor_bottom = 0.95
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = -267.0
+offset_right = 168.5
+offset_bottom = 267.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Control" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control2" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -170,10 +167,6 @@ text = "Back"
 [node name="Spacer6" type="Control" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-
-[node name="Control3" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 
