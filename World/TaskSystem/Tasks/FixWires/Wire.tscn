@@ -27,6 +27,7 @@ joint_mode = 2
 [node name="StartPoint" type="Marker2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartPoint"]
+visible = false
 shape = SubResource("CircleShape2D_4tc6u")
 
 [node name="EndHandle" type="Area2D" parent="."]

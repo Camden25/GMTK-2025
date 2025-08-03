@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dvt5hboc1pxh7"]
+[gd_scene load_steps=20 format=3 uid="uid://dvt5hboc1pxh7"]
 
 [ext_resource type="Texture2D" uid="uid://5axlcc717jm3" path="res://Monster/Assets/Monster.png" id="1_7v0tg"]
 [ext_resource type="Script" uid="uid://dwwexsh1tusmq" path="res://Monster/Scripts/Monster.gd" id="1_ehvhd"]
+[ext_resource type="AudioStream" uid="uid://dlhafhplepyxa" path="res://Audio/Music/Chasing.mp3" id="2_j5ngi"]
+[ext_resource type="AudioStream" uid="uid://btsfcdf236nw4" path="res://Audio/Music/SunkenSound.mp3" id="3_1dhd6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ehvhd"]
 radius = 29.0
@@ -81,6 +83,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"make_walk_sfx"
+}, {
+"args": [],
+"method": &"make_walk_sfx"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ehvhd"]
 resource_name = "walk_right"
@@ -110,6 +129,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"make_walk_sfx"
+}, {
+"args": [],
+"method": &"make_walk_sfx"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1dhd6"]
@@ -155,8 +191,21 @@ states/Walk/position = Vector2(560, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_wyx6f")]
 graph_offset = Vector2(-35, -32)
 
-[node name="Monster" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ehvhd"]
+radius = 350.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1dhd6"]
+radius = 16.0
+height = 116.0
+
+[node name="Monster" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_ehvhd")
+animation_tree = NodePath("AnimationTree")
+speed_scale = null
+chase_music = ExtResource("2_j5ngi")
+normal_music = ExtResource("3_1dhd6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7v0tg")
@@ -173,7 +222,27 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ehvhd")
+anim_player = NodePath("../AnimationPlayer")
 parameters/Walk/blend_position = -0.99651
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(-18, 64)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_ehvhd")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_1dhd6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

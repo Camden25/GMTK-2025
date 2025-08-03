@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cell8fkl78606" path="res://UI/Scripts/GUI.gd" id="1_og774"]
 
 [node name="GUI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_og774")
 
 [node name="Current Day" type="Label" parent="."]

@@ -1,8 +1,0 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://3r31tfl2dsv6"]
-
-[ext_resource type="AudioStream" uid="uid://jmc5dpnask5d" path="res://Audio/SoundEffects/Raw/SFX_main_character_hit.ogg" id="1_rvecc"]
-
-[resource]
-streams_count = 1
-stream_0/stream = ExtResource("1_rvecc")
-stream_0/weight = 1.0

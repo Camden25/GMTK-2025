@@ -36,19 +36,19 @@ position = Vector2(353, 50.5)
 correct_target = NodePath("../../TargetsContainer/WireTarget")
 
 [node name="Wire2" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(353, 113.5)
+position = Vector2(353, 115)
 correct_target = NodePath("../../TargetsContainer/WireTarget2")
 
 [node name="Wire3" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(353, 177.5)
+position = Vector2(353, 179)
 correct_target = NodePath("../../TargetsContainer/WireTarget3")
 
 [node name="Wire4" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(353, 241.5)
+position = Vector2(353, 243)
 correct_target = NodePath("../../TargetsContainer/WireTarget4")
 
 [node name="Wire5" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(353, 305.5)
+position = Vector2(353, 307)
 correct_target = NodePath("../../TargetsContainer/WireTarget5")
 
 [node name="TargetsContainer" type="Node2D" parent="."]
@@ -57,13 +57,13 @@ correct_target = NodePath("../../TargetsContainer/WireTarget5")
 position = Vector2(540, 50.5)
 
 [node name="WireTarget2" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(540, 113.5)
+position = Vector2(540, 115)
 
 [node name="WireTarget3" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(540, 177.5)
+position = Vector2(540, 179)
 
 [node name="WireTarget4" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(540, 241.5)
+position = Vector2(540, 243)
 
 [node name="WireTarget5" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(540, 305.5)
+position = Vector2(540, 307)

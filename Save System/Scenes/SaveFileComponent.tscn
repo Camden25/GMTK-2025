@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4g54ntuyud2p"]
 
 [ext_resource type="Script" uid="uid://chmkcs82s4yvg" path="res://Save System/Scripts/SaveFileComponent.gd" id="1_v0rvl"]
-[ext_resource type="FontFile" uid="uid://bgky51hv24myd" path="res://Menus/Assets/font.otf" id="2_2ngbx"]
+[ext_resource type="FontFile" uid="uid://bl608iusnxo45" path="res://Menus/Assets/clean_font.otf" id="2_2ngbx"]
 [ext_resource type="FontFile" uid="uid://bypuvq5s2ra6o" path="res://Menus/Assets/font-bold.otf" id="2_lhho6"]
 [ext_resource type="Theme" uid="uid://c6hlgkp88xg50" path="res://Menus/Assets/LightButton.tres" id="4_j4h2k"]
 

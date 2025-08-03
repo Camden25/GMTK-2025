@@ -24,13 +24,17 @@ func _process(delta: float) -> void:
 		return
 	
 	var day: Day = day_manager.current_day
-	for scheduled_time: int in day.scheduled_events:
-		if current_time_minutes >= scheduled_time:
-			var event: Event = day.scheduled_events[scheduled_time]
+	for event: Event in day.events:
+		var scheduled_time: int = event.time
+		if current_time_minutes >= scheduled_time and triggered_events.has(event) == false:
+			print("Past scheduled time")
+			triggered_events.append(event)
+			print(triggered_events)
 			if event.trigger_function:
 				if event.trigger_values:
 					game_event_manager.call(event.trigger_function, event.trigger_values)
-			triggered_events.append(scheduled_time)
+				else:
+					game_event_manager.call(event.trigger_function)
 	
 	formatted_time = format_time(int(current_time_minutes))
 

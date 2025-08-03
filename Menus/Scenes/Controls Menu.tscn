@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8popg21svl7b"]
+[gd_scene load_steps=13 format=3 uid="uid://8popg21svl7b"]
 
 [ext_resource type="Script" uid="uid://firpo4m43j2c" path="res://Menus/Scripts/Controls Menu.gd" id="1_s1pnw"]
 [ext_resource type="PackedScene" uid="uid://dm1av7skxvp1j" path="res://game_settings/components/input_btn/input_btn.tscn" id="2_slk3k"]
@@ -41,10 +41,10 @@ value_hint_string = ""
 [sub_resource type="Resource" id="Resource_5jkbi"]
 resource_name = "up"
 script = ExtResource("5_o64gi")
-action = "up"
+action = "jump"
 type = 0
-current = "W"
-default = "W"
+current = "Space"
+default = "Space"
 name = "up"
 category = "Controls Menu"
 icon = ExtResource("4_sx8st")
@@ -56,41 +56,11 @@ value_hint_string = ""
 [sub_resource type="Resource" id="Resource_33p53"]
 resource_name = "down"
 script = ExtResource("5_o64gi")
-action = "down"
-type = 0
-current = "S"
-default = "S"
-name = "down"
-category = "Controls Menu"
-icon = ExtResource("4_sx8st")
-desc = "Rebind keyboard or gamepad input of a specific input action."
-value_type = 4
-value_hint = 0
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_r3ddn"]
-resource_name = "dash"
-script = ExtResource("5_o64gi")
-action = "dash"
-type = 0
-current = "Space"
-default = "Space"
-name = "dash"
-category = "Controls Menu"
-icon = ExtResource("4_sx8st")
-desc = "Rebind keyboard or gamepad input of a specific input action."
-value_type = 4
-value_hint = 0
-value_hint_string = ""
-
-[sub_resource type="Resource" id="Resource_bsu7c"]
-resource_name = "call"
-script = ExtResource("5_o64gi")
-action = "call"
+action = "hide"
 type = 0
 current = "Shift"
 default = "Shift"
-name = "call"
+name = "down"
 category = "Controls Menu"
 icon = ExtResource("4_sx8st")
 desc = "Rebind keyboard or gamepad input of a specific input action."
@@ -101,7 +71,7 @@ value_hint_string = ""
 [sub_resource type="Resource" id="Resource_ngrac"]
 resource_name = "use item"
 script = ExtResource("5_o64gi")
-action = "use_item"
+action = "interact"
 type = 0
 current = "E"
 default = "E"
@@ -169,35 +139,19 @@ setting = SubResource("Resource_4l617")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Up" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("2_slk3k")]
+[node name="Jump" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("2_slk3k")]
 layout_mode = 2
 size_flags_vertical = 4
 icw = NodePath("../../../InputConfirmWindow")
 setting = SubResource("Resource_5jkbi")
 
-[node name="Down" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("2_slk3k")]
+[node name="Hide" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("2_slk3k")]
 layout_mode = 2
 size_flags_vertical = 4
 icw = NodePath("../../../InputConfirmWindow")
 setting = SubResource("Resource_33p53")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Dash" parent="VBoxContainer/HBoxContainer3" instance=ExtResource("2_slk3k")]
-layout_mode = 2
-size_flags_vertical = 4
-icw = NodePath("../../../InputConfirmWindow")
-setting = SubResource("Resource_r3ddn")
-
-[node name="Call" parent="VBoxContainer/HBoxContainer3" instance=ExtResource("2_slk3k")]
-layout_mode = 2
-size_flags_vertical = 4
-icw = NodePath("../../../InputConfirmWindow")
-setting = SubResource("Resource_bsu7c")
-
-[node name="Use Item" parent="VBoxContainer" instance=ExtResource("2_slk3k")]
+[node name="Interact" parent="VBoxContainer" instance=ExtResource("2_slk3k")]
 layout_mode = 2
 size_flags_vertical = 4
 icw = NodePath("../../InputConfirmWindow")
@@ -223,8 +177,6 @@ layout_mode = 2
 
 [editable path="VBoxContainer/HBoxContainer/Left"]
 [editable path="VBoxContainer/HBoxContainer/Right"]
-[editable path="VBoxContainer/HBoxContainer2/Up"]
-[editable path="VBoxContainer/HBoxContainer2/Down"]
-[editable path="VBoxContainer/HBoxContainer3/Dash"]
-[editable path="VBoxContainer/HBoxContainer3/Call"]
-[editable path="VBoxContainer/Use Item"]
+[editable path="VBoxContainer/HBoxContainer2/Jump"]
+[editable path="VBoxContainer/HBoxContainer2/Hide"]
+[editable path="VBoxContainer/Interact"]
