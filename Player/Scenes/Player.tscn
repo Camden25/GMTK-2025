@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4krts0c4dnh2"]
+[gd_scene load_steps=25 format=3 uid="uid://c4krts0c4dnh2"]
 
-[ext_resource type="Texture2D" uid="uid://b38jw2xf0oern" path="res://Player/Assets/Player.png" id="1_4pdrp"]
+[ext_resource type="Texture2D" uid="uid://2811upcxqq1p" path="res://Player/Assets/Player.png" id="1_4pdrp"]
 [ext_resource type="Script" uid="uid://dpntggr6oclbx" path="res://Player/Scripts/player.gd" id="1_nk6jx"]
 [ext_resource type="Script" uid="uid://brsl5m4b6xpkn" path="res://addons/ProCam2D/scripts/pcam_target.gd" id="3_hql3v"]
 [ext_resource type="Script" uid="uid://ed4cbrer8p11" path="res://Player/Scripts/state_determination.gd" id="4_nk6jx"]
@@ -271,16 +271,58 @@ tracks/5/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_wyx6f"]
+resource_name = "hide"
+length = 1.33337
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_n15od"]
+resource_name = "unhide"
+length = 1.33337
+step = 0.333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 10]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7jgbj"]
 _data = {
 &"RESET": SubResource("Animation_nk6jx"),
+&"hide": SubResource("Animation_wyx6f"),
 &"idle": SubResource("Animation_ejah4"),
+&"unhide": SubResource("Animation_n15od"),
 &"walk_left": SubResource("Animation_7jgbj"),
 &"walk_right": SubResource("Animation_hql3v")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7jgbj"]
+animation = &"hide"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ejah4"]
 animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wyx6f"]
+animation = &"unhide"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ehvhd"]
 animation = &"walk_left"
@@ -306,11 +348,15 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ejah4"]
 states/End/position = Vector2(899, 100)
+states/Hide/node = SubResource("AnimationNodeAnimation_7jgbj")
+states/Hide/position = Vector2(214, 175)
 states/Idle/node = SubResource("AnimationNodeAnimation_ejah4")
 states/Idle/position = Vector2(337, 100)
 states/Start/position = Vector2(161, 100)
+states/Unhide/node = SubResource("AnimationNodeAnimation_wyx6f")
+states/Unhide/position = Vector2(337, 175)
 states/Walk/node = SubResource("AnimationNodeBlendSpace1D_7jgbj")
-states/Walk/position = Vector2(560, 100)
+states/Walk/position = Vector2(503, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_wyx6f")]
 graph_offset = Vector2(-35, -32)
 
@@ -338,7 +384,6 @@ shape = SubResource("CapsuleShape2D_0qu43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4pdrp")
-flip_h = true
 hframes = 17
 frame = 1
 
@@ -356,7 +401,7 @@ autoplay = "walk_right"
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ejah4")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Walk/blend_position = -0.0439239
+parameters/Walk/blend_position = -0.991274
 
 [node name="GroundContact" type="Marker2D" parent="."]
 position = Vector2(-4, 48)
@@ -376,9 +421,10 @@ offset_top = -1.0
 offset_right = 1.0
 offset_bottom = 1.0
 
-[node name="StateDetermination" type="Node" parent="."]
+[node name="StateDetermination" type="Node" parent="." node_paths=PackedStringArray("animation_controller")]
 script = ExtResource("4_nk6jx")
 player_path = NodePath("..")
+animation_controller = NodePath("../AnimationController")
 
 [node name="AnimationController" type="Node" parent="."]
 script = ExtResource("5_7jgbj")
