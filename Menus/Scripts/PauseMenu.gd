@@ -24,5 +24,4 @@ func _on_resume_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().paused = false
-	SaveSystem.save_file()
 	scene_manager.swap_scene(scene_manager.menu_manager_scene)

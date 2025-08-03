@@ -1,10 +1,7 @@
-res://World/Scenes/ControlRoom.tscn
+res://Player/Scenes/Player.tscn
 res://addons/ggs/editor/_theme/ggs_theme.tres
 res://UI/Scripts/Vignette.gdshader
 res://UI/Scripts/Bloom.gdshader
+res://Monster/Scenes/Monster.tscn
+res://Monster/Scripts/Monster.gd
 res://World/Scenes/Submarine.tscn
-res://Player/Scenes/Player.tscn
-res://UI/Scenes/UI.tscn
-res://UI/Scenes/GUI.tscn
-res://World/TaskSystem/Tasks/FixWires/FixWiresTask.tscn
-res://UI/Scenes/PostProcessing.tscn

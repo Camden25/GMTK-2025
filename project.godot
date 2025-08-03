@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/ProCam2D/plugin.cfg", "res://addons/ggs/
 [global_group]
 
 SceneManager=""
+Player=""
 
 [input]
 
@@ -76,4 +77,3 @@ interact={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-viewport/hdr_2d=true

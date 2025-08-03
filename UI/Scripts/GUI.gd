@@ -5,7 +5,7 @@ extends CanvasLayer
 @export var day_manager: DayManager
 @export var task_manager: TaskManager
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_day()
 	update_time()
 

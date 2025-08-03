@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4krts0c4dnh2"]
+[gd_scene load_steps=21 format=3 uid="uid://c4krts0c4dnh2"]
 
 [ext_resource type="Texture2D" uid="uid://b38jw2xf0oern" path="res://Player/Assets/Player.png" id="1_4pdrp"]
 [ext_resource type="Script" uid="uid://dpntggr6oclbx" path="res://Player/Scripts/player.gd" id="1_nk6jx"]
@@ -282,21 +282,21 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ejah4"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7jgbj"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ehvhd"]
 animation = &"walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wyx6f"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j5ngi"]
 animation = &"walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n15od"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1dhd6"]
 animation = &"walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_7jgbj"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_7jgbj")
+blend_point_0/node = SubResource("AnimationNodeAnimation_ehvhd")
 blend_point_0/pos = -1.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_wyx6f")
+blend_point_1/node = SubResource("AnimationNodeAnimation_j5ngi")
 blend_point_1/pos = -1.0
-blend_point_2/node = SubResource("AnimationNodeAnimation_n15od")
+blend_point_2/node = SubResource("AnimationNodeAnimation_1dhd6")
 blend_point_2/pos = 1.0
 blend_mode = 1
 sync = true
@@ -318,7 +318,12 @@ graph_offset = Vector2(-35, -32)
 radius = 44.0
 height = 116.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ejah4"]
+radius = 16.0
+height = 74.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
 script = ExtResource("1_nk6jx")
 input_left = "left"
 input_right = "right"
@@ -333,6 +338,7 @@ shape = SubResource("CapsuleShape2D_0qu43")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4pdrp")
+flip_h = true
 hframes = 17
 frame = 1
 
@@ -385,3 +391,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionHitbox"]
 shape = SubResource("CapsuleShape2D_7jgbj")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CapsuleShape2D_ejah4")

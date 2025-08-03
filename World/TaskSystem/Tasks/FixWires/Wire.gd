@@ -29,7 +29,6 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not event.pressed:
-			print("Mouse released")
 			if dragging:
 				dragging = false
 				_check_connection()
