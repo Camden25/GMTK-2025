@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Day" load_steps=4 format=3 uid="uid://us36s15oys8v"]
+
+[ext_resource type="Script" uid="uid://dq0l3v4h0x1hw" path="res://World/EventSystem/Event.gd" id="1_4qdhj"]
+[ext_resource type="Script" uid="uid://clf87tg5nspmf" path="res://World/DaySystem/Day.gd" id="2_18jdk"]
+
+[sub_resource type="Resource" id="Resource_4qdhj"]
+script = ExtResource("1_4qdhj")
+name = "Summon Monster"
+trigger_function = "summon_monster"
+trigger_values = []
+time = 300
+metadata/_custom_type_script = "uid://dq0l3v4h0x1hw"
+
+[resource]
+script = ExtResource("2_18jdk")
+normal_tasks = Array[String](["Fix Wires", "Lights On"])
+emergency_tasks_count = 0
+events = Array[ExtResource("1_4qdhj")]([SubResource("Resource_4qdhj")])
+metadata/_custom_type_script = "uid://clf87tg5nspmf"

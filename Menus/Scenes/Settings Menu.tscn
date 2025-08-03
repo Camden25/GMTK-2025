@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bssep6sood7m0" path="res://Menus/Scripts/Settings Menu.gd" id="1_y6oma"]
 [ext_resource type="Theme" uid="uid://drygv0g3n8240" path="res://Menus/Assets/Label.tres" id="2_ceqh0"]
 [ext_resource type="Theme" uid="uid://ds2r3mfc2p217" path="res://Menus/Assets/Button.tres" id="3_b02dn"]
-[ext_resource type="FontFile" uid="uid://bgky51hv24myd" path="res://Menus/Assets/font.otf" id="3_jmibg"]
+[ext_resource type="FontFile" uid="uid://bl608iusnxo45" path="res://Menus/Assets/clean_font.otf" id="3_jmibg"]
 
 [node name="Settings Menu" type="Control"]
 layout_mode = 3
@@ -34,14 +34,6 @@ anchor_right = 1.0
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Control" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Control2" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -82,10 +74,6 @@ size_flags_vertical = 6
 theme = ExtResource("3_b02dn")
 theme_override_font_sizes/font_size = 96
 text = "Back"
-
-[node name="Control3" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [connection signal="pressed" from="HBoxContainer/Buttons/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Buttons/VideoButton" to="." method="_on_video_button_pressed"]

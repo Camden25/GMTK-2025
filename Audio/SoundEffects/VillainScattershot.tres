@@ -1,8 +1,0 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://dkopeklah86e4"]
-
-[ext_resource type="AudioStream" uid="uid://csoua33ocwuss" path="res://Audio/SoundEffects/Raw/SFX_villain_fire_scattershot.ogg" id="1_adjlg"]
-
-[resource]
-streams_count = 1
-stream_0/stream = ExtResource("1_adjlg")
-stream_0/weight = 1.0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Day" load_steps=3 format=3 uid="uid://dck3aq5ohaws8"]
+
+[ext_resource type="Script" uid="uid://dq0l3v4h0x1hw" path="res://World/EventSystem/Event.gd" id="1_4k1ac"]
+[ext_resource type="Script" uid="uid://clf87tg5nspmf" path="res://World/DaySystem/Day.gd" id="2_j58bc"]
+
+[resource]
+script = ExtResource("2_j58bc")
+normal_tasks = Array[String](["Fix Wires", "Lights On"])
+emergency_tasks_count = 0
+events = Array[ExtResource("1_4k1ac")]([])
+metadata/_custom_type_script = "uid://clf87tg5nspmf"

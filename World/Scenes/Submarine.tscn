@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://x4304bjikfpx"]
+[gd_scene load_steps=22 format=3 uid="uid://x4304bjikfpx"]
 
 [ext_resource type="PackedScene" uid="uid://c4krts0c4dnh2" path="res://Player/Scenes/Player.tscn" id="1_min8j"]
+[ext_resource type="AudioStream" uid="uid://btsfcdf236nw4" path="res://Audio/Music/SunkenSound.mp3" id="1_mvr18"]
 [ext_resource type="Script" uid="uid://bvc8y4ewa56xf" path="res://addons/ProCam2D/scripts/procam2d.gd" id="2_ixehv"]
 [ext_resource type="PackedScene" uid="uid://csfqisqmliovb" path="res://World/Scenes/SleepingCabin.tscn" id="2_r38ai"]
 [ext_resource type="PackedScene" uid="uid://cu3tpbs8qjc00" path="res://World/Scenes/ControlRoom.tscn" id="3_ixehv"]
@@ -8,25 +9,38 @@
 [ext_resource type="Script" uid="uid://clf87tg5nspmf" path="res://World/DaySystem/Day.gd" id="6_1smlc"]
 [ext_resource type="Script" uid="uid://0llkkc0gr0t4" path="res://World/DaySystem/DayManager.gd" id="6_8rji3"]
 [ext_resource type="Script" uid="uid://1jqdtgdturn1" path="res://World/TaskSystem/Scripts/TaskManager.gd" id="6_ikr1c"]
+[ext_resource type="PackedScene" uid="uid://de4d35c21mc0" path="res://World/Scenes/Light.tscn" id="7_5vbw5"]
 [ext_resource type="Script" uid="uid://7qn27oblau5i" path="res://World/DaySystem/TimeManager.gd" id="7_8rji3"]
-[ext_resource type="Script" uid="uid://dq0l3v4h0x1hw" path="res://World/EventSystem/Event.gd" id="7_sicfu"]
 [ext_resource type="Script" uid="uid://diqyvfuudwrgv" path="res://World/EventSystem/GameEventManager.gd" id="10_fshen"]
 [ext_resource type="PackedScene" uid="uid://dkdstija3lby5" path="res://UI/Scenes/UI.tscn" id="11_324f7"]
+[ext_resource type="Resource" uid="uid://dck3aq5ohaws8" path="res://World/DaySystem/Days/day_1.tres" id="11_ul5uw"]
+[ext_resource type="Resource" uid="uid://us36s15oys8v" path="res://World/DaySystem/Days/day_2.tres" id="12_t5u8r"]
+[ext_resource type="Resource" uid="uid://bjcqtjp2lllxr" path="res://World/DaySystem/Days/day_3.tres" id="13_t5u8r"]
 
 [sub_resource type="GDScript" id="GDScript_ixehv"]
 script/source = "extends Node2D
 
+@export var game_song: AudioStream
+
 func _ready() -> void:
-	#Engine.time_scale = 0.1
-	pass
+	if game_song:
+		AudioManager.change_music(game_song)
 "
 
-[sub_resource type="Resource" id="Resource_fshen"]
-script = ExtResource("6_1smlc")
-normal_tasks = Array[String](["Fix Wires", "Lights On"])
-emergency_tasks_count = 0
-scheduled_events = Dictionary[int, ExtResource("7_sicfu")]({})
-metadata/_custom_type_script = "uid://clf87tg5nspmf"
+[sub_resource type="Gradient" id="Gradient_mvr18"]
+offsets = PackedFloat32Array(0, 0.737752, 0.939481)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vbw5"]
+gradient = SubResource("Gradient_mvr18")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3n3m4"]
+size = Vector2(84, 360)
 
 [sub_resource type="Environment" id="Environment_324f7"]
 background_mode = 3
@@ -35,12 +49,23 @@ glow_intensity = 1.0
 glow_strength = 0.95
 glow_blend_mode = 0
 adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.05
 
 [node name="Submarine" type="Node2D"]
 script = SubResource("GDScript_ixehv")
+game_song = ExtResource("1_mvr18")
 
 [node name="Player" parent="." instance=ExtResource("1_min8j")]
+z_index = 1
 position = Vector2(94, 66)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+texture_filter = 1
+scale = Vector2(3, 3)
+color = Color(1, 1, 1, 0.249)
+energy = 0.86
+texture = SubResource("GradientTexture2D_5vbw5")
 
 [node name="ProCam2D" type="Node2D" parent="."]
 z_index = 4096
@@ -83,26 +108,59 @@ position = Vector2(640, 0)
 [node name="EngineRoom" parent="." instance=ExtResource("5_3n3m4")]
 position = Vector2(-640, 0)
 
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="Light" parent="Lights" instance=ExtResource("7_5vbw5")]
+position = Vector2(0, 12)
+
+[node name="Light2" parent="Lights" instance=ExtResource("7_5vbw5")]
+position = Vector2(-369, 12)
+color = Color(0.882813, 0.859104, 0.606934, 1)
+
+[node name="Light3" parent="Lights" instance=ExtResource("7_5vbw5")]
+position = Vector2(792, 12)
+color = Color(0.882813, 0.859104, 0.606934, 1)
+
+[node name="Light4" parent="Lights" instance=ExtResource("7_5vbw5")]
+position = Vector2(-784, 12)
+color = Color(0.882813, 0.859104, 0.606934, 1)
+
+[node name="Light5" parent="Lights" instance=ExtResource("7_5vbw5")]
+position = Vector2(404, 12)
+color = Color(0.882813, 0.859104, 0.606934, 1)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-978, 0)
+shape = SubResource("RectangleShape2D_3n3m4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(978, 0)
+shape = SubResource("RectangleShape2D_3n3m4")
+
 [node name="TaskManager" type="Node" parent="."]
 script = ExtResource("6_ikr1c")
 metadata/_custom_type_script = "uid://1jqdtgdturn1"
 
 [node name="DayManager" type="Node" parent="." node_paths=PackedStringArray("task_manager", "time_manager")]
 script = ExtResource("6_8rji3")
-days = Array[ExtResource("6_1smlc")]([SubResource("Resource_fshen")])
+days = Array[ExtResource("6_1smlc")]([ExtResource("11_ul5uw"), ExtResource("12_t5u8r"), ExtResource("13_t5u8r"), ExtResource("13_t5u8r"), ExtResource("13_t5u8r")])
 task_manager = NodePath("../TaskManager")
 time_manager = NodePath("../TimeManager")
 metadata/_custom_type_script = "uid://0llkkc0gr0t4"
 
 [node name="TimeManager" type="Node" parent="." node_paths=PackedStringArray("day_manager", "game_event_manager")]
+process_mode = 3
 script = ExtResource("7_8rji3")
 time_speed = 10.0
 day_manager = NodePath("../DayManager")
 game_event_manager = NodePath("../GameEventManager")
 metadata/_custom_type_script = "uid://7qn27oblau5i"
 
-[node name="GameEventManager" type="Node" parent="."]
+[node name="GameEventManager" type="Node" parent="." node_paths=PackedStringArray("lights")]
 script = ExtResource("10_fshen")
+lights = NodePath("../Lights")
 metadata/_custom_type_script = "uid://diqyvfuudwrgv"
 
 [node name="UI" parent="." instance=ExtResource("11_324f7")]
@@ -120,6 +178,6 @@ visible = false
 environment = SubResource("Environment_324f7")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.585938, 0.585938, 0.585938, 1)
+color = Color(0.109, 0.109, 0.109, 0.896)
 
 [editable path="UI"]

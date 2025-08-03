@@ -47,7 +47,7 @@ func _check_connection() -> void:
 			else:
 				## reset if wrong
 				#end_handle.global_position = start_point.global_position + Vector2(randf_range(-200, 200), randf_range(-300, 50))
-				end_handle.global_position = Vector2(randf_range(320, 1600), randf_range(162, 918))
+				end_handle.global_position = Vector2(randf_range(363, 530), randf_range(40, 316))*3
 				end_handle.rotation = line.get_point_position(1).angle_to_point(end_handle.position)
 				line.set_point_position(2, end_handle.position)
 				end_handle.visible = true

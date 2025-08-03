@@ -407,6 +407,7 @@ parameters/Walk/blend_position = -0.991274
 position = Vector2(-4, 48)
 
 [node name="ColorRect" type="ColorRect" parent="GroundContact"]
+visible = false
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 1.0
@@ -416,6 +417,7 @@ offset_bottom = 1.0
 position = Vector2(17, 48)
 
 [node name="ColorRect" type="ColorRect" parent="GroundContact2"]
+visible = false
 offset_left = -1.0
 offset_top = -1.0
 offset_right = 1.0
@@ -439,6 +441,8 @@ collision_mask = 0
 shape = SubResource("CapsuleShape2D_7jgbj")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_ejah4")

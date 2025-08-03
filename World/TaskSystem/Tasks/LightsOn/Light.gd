@@ -32,7 +32,7 @@ func check_pos(test_pos: Vector2) -> void:
 func set_light_from_pos(test_pos: Vector2) -> void:
 	neighbors.append(get_parent().lights_popup.lights_2d[int(test_pos.x)][int(test_pos.y)])
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		toggle()
 		for light: TaskLight in neighbors:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bfiovaynt05gp" path="res://game_settings/components/input_btn/input_btn.gd" id="1_roqsf"]
 [ext_resource type="Theme" uid="uid://c6hlgkp88xg50" path="res://Menus/Assets/LightButton.tres" id="3_47drr"]
 [ext_resource type="FontFile" uid="uid://bypuvq5s2ra6o" path="res://Menus/Assets/font-bold.otf" id="3_d4a0r"]
-[ext_resource type="FontFile" uid="uid://bgky51hv24myd" path="res://Menus/Assets/font.otf" id="3_ffbs1"]
+[ext_resource type="FontFile" uid="uid://bl608iusnxo45" path="res://Menus/Assets/clean_font.otf" id="3_ffbs1"]
 
 [node name="InputBtn" type="MarginContainer"]
 custom_minimum_size = Vector2(650, 0)

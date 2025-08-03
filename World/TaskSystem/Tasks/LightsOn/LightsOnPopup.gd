@@ -17,7 +17,7 @@ func _ready() -> void:
 		for light: TaskLight in random_light.neighbors:
 			light.toggle()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	check_all_lights_on()
 
 func check_all_lights_on() -> void:

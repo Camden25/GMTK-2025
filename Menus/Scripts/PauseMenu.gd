@@ -6,7 +6,7 @@ var menu_open: bool = false
 
 func _process(_delta: float) -> void:
 	menu_open = visible
-	if menu_open == false:
+	if menu_open == false and get_tree().paused == false:
 		if Input.is_action_just_pressed("ui_cancel"):
 			get_tree().paused = true
 			visible = true
