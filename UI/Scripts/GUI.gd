@@ -19,6 +19,15 @@ func update_time() -> void:
 func update_tasks() -> void:
 	for task: Task in task_manager.active_tasks:
 		add_task(task)
+	
+	for label: Label in $Tasks.get_children():
+		remove_label(label)
+
+func remove_label(label) -> void:
+	for task: Task in task_manager.active_tasks:
+		if label.text == task.task_name:
+			return
+	label.queue_free()
 
 func add_task(task: Task) -> void:
 	for child: Label in get_node("Tasks").get_children():

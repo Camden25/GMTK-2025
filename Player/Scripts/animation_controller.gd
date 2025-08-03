@@ -22,6 +22,12 @@ func _process(_delta: float) -> void:
 			if state_determination.player.velocity.x != 0:
 				animation_tree.set("parameters/Walk/blend_position", sign(state_determination.player.velocity.x))
 			animation_playback.travel("Walk")
+		player_states.JUMP:
+			if animation_tree.get("parameters/Walk/blend_position") < 0:
+				get_parent().get_node("Sprite2D").flip_h = true
+		player_states.FALL:
+			if animation_tree.get("parameters/Walk/blend_position") < 0:
+				get_parent().get_node("Sprite2D").flip_h = true
 		player_states.HIDE:
 			animation_playback.travel("Hide")
 			if animation_tree.get("parameters/Walk/blend_position") < 0:

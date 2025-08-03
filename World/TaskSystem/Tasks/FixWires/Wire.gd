@@ -16,6 +16,7 @@ func _ready() -> void:
 	set_wire_color()
 	line.clear_points()
 	line.add_point(start_point.position)
+	line.add_point(start_point.position + Vector2(10, 0))
 	line.add_point(end_handle.position)
 	
 	end_handle.connect("input_event", Callable(self, "_on_end_handle_input_event"))
@@ -24,7 +25,8 @@ func _process(_delta: float) -> void:
 	if dragging:
 		var mouse_pos: Vector2 = get_global_mouse_position()
 		end_handle.global_position = mouse_pos
-		line.set_point_position(1, end_handle.position)
+		end_handle.rotation = line.get_point_position(1).angle_to_point(end_handle.position)
+		line.set_point_position(2, end_handle.position)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -38,22 +40,27 @@ func _check_connection() -> void:
 		if area.global_position.distance_to(end_handle.global_position) < 20:
 			if area == correct_target:
 				end_handle.global_position = area.global_position
-				line.set_point_position(1, end_handle.position)
+				line.set_point_position(2, end_handle.position)
+				end_handle.visible = false
 				end_handle.monitoring = false
 				emit_signal("wire_connected") # optional
 			else:
 				## reset if wrong
 				#end_handle.global_position = start_point.global_position + Vector2(randf_range(-200, 200), randf_range(-300, 50))
 				end_handle.global_position = Vector2(randf_range(320, 1600), randf_range(162, 918))
-				line.set_point_position(1, end_handle.position)
+				end_handle.rotation = line.get_point_position(1).angle_to_point(end_handle.position)
+				line.set_point_position(2, end_handle.position)
+				end_handle.visible = true
 
 func set_end_handle_position() -> void:
 	#end_handle.position = Vector2(randf_range(-40,40), randf_range(-60, -20))
-	end_handle.global_position = Vector2(randf_range(320, 1600), randf_range(162, 918))
+	end_handle.global_position = Vector2(randf_range(363, 530), randf_range(40, 316))*3
+	end_handle.rotation = line.get_point_position(1).angle_to_point(end_handle.position)
 
 func set_wire_color() -> void:
 	wire_color = Color.from_hsv(randf_range(0.0,1.0), 0.85, 0.8, 1.0)
 	line.default_color = wire_color
+	end_handle.modulate = wire_color
 
 func _on_end_handle_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	print("input event")

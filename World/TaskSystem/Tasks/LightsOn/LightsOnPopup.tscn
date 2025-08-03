@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://tcsd7rhcsq1e"]
+
+[ext_resource type="Texture2D" uid="uid://cc2chy72wr1ga" path="res://World/TaskSystem/Tasks/LightsOn/Assets/light-task-bg.png" id="1_a4pe2"]
+[ext_resource type="Script" uid="uid://2hq4b5o1bmxc" path="res://World/TaskSystem/Tasks/LightsOn/LightsOnPopup.gd" id="1_g3iha"]
+[ext_resource type="Script" uid="uid://btownne1ti0yo" path="res://World/TaskSystem/Tasks/LightsOn/LightRow.gd" id="3_jd7w6"]
+
+[node name="LightsOnPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g3iha")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+mouse_filter = 2
+texture = ExtResource("1_a4pe2")
+stretch_mode = 3
+
+[node name="Row0" type="Node2D" parent="." node_paths=PackedStringArray("lights_popup")]
+position = Vector2(904.5, 225.5)
+script = ExtResource("3_jd7w6")
+lights_popup = NodePath("..")
+
+[node name="Row1" type="Node2D" parent="." node_paths=PackedStringArray("lights_popup")]
+position = Vector2(904.5, 381.5)
+script = ExtResource("3_jd7w6")
+row_number = 1
+lights_popup = NodePath("..")
+
+[node name="Row2" type="Node2D" parent="." node_paths=PackedStringArray("lights_popup")]
+position = Vector2(904.5, 537.5)
+script = ExtResource("3_jd7w6")
+row_number = 2
+lights_popup = NodePath("..")
+
+[node name="Row3" type="Node2D" parent="." node_paths=PackedStringArray("lights_popup")]
+position = Vector2(904.5, 693.5)
+script = ExtResource("3_jd7w6")
+row_number = 3
+lights_popup = NodePath("..")
+
+[node name="Row4" type="Node2D" parent="." node_paths=PackedStringArray("lights_popup")]
+position = Vector2(904.5, 849.5)
+script = ExtResource("3_jd7w6")
+row_number = 4
+lights_popup = NodePath("..")

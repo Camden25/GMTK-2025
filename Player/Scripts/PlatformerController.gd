@@ -164,6 +164,9 @@ func _physics_process(delta: float) -> void:
 	
 	velocity.x = clamp(velocity.x, -max_horizontal_velocity, max_horizontal_velocity)
 	
+	if can_move == false:
+		velocity.x = 0
+		velocity.y = clamp(velocity.y, 0, 100)
 	
 	_was_on_ground = is_feet_on_ground()
 	move_and_slide()

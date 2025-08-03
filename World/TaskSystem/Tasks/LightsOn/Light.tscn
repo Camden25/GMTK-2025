@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhue7ktdh75ru"]
+
+[ext_resource type="Script" uid="uid://d36xqgs6u4paa" path="res://World/TaskSystem/Tasks/LightsOn/Light.gd" id="1_1e74y"]
+[ext_resource type="Texture2D" uid="uid://dc4g24q2mhrag" path="res://World/TaskSystem/Tasks/LightsOn/Assets/lightOn.png" id="1_yekb3"]
+[ext_resource type="Texture2D" uid="uid://cio4d2u7rs5kj" path="res://World/TaskSystem/Tasks/LightsOn/Assets/lightOff.png" id="2_1e74y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpmqg"]
+size = Vector2(147, 147)
+
+[node name="Light" type="Area2D"]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_1e74y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xpmqg")
+
+[node name="LightOn" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_yekb3")
+
+[node name="LightOff" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_1e74y")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
