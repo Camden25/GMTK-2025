@@ -6,6 +6,7 @@ var active_tasks: Array[Task] = []
 
 func _ready() -> void:
 	find_all_tasks()
+	connect_task_signals()
 
 func find_all_tasks() -> void:
 	all_tasks.clear()
@@ -52,3 +53,14 @@ func check_all_tasks_complete() -> bool:
 		if not task.completed:
 			return false
 	return true
+
+func connect_task_signals() -> void:
+	for task: Task in all_tasks:
+		if not task.is_connected("task_completed", Callable(self, "_on_task_completed")):
+			task.task_completed.connect(_on_task_completed)
+
+func _on_task_completed(task: Task) -> void:
+	print("Task completed: ", task.task_name)
+	active_tasks.erase(task)
+	if check_all_tasks_complete():
+		print("All tasks complete!")

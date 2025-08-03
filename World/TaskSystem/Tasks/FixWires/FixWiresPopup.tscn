@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ceatittuq2yw8" path="res://World/TaskSystem/Tasks/FixWires/FixWiresPopup.gd" id="1_qfg07"]
 [ext_resource type="PackedScene" uid="uid://bdso2j6mxhk01" path="res://World/TaskSystem/Tasks/FixWires/Wire.tscn" id="2_83wgo"]
+[ext_resource type="Texture2D" uid="uid://y2hikunl04rk" path="res://World/TaskSystem/Tasks/FixWires/Assets/WireBox.png" id="2_i06lu"]
 [ext_resource type="PackedScene" uid="uid://t7dma52t3q5k" path="res://World/TaskSystem/Tasks/FixWires/WireTarget.tscn" id="3_y3fov"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfg07"]
-bg_color = Color(0.16, 0.16, 0.16, 1)
 
 [node name="FixWiresPopup" type="Control"]
 layout_mode = 3
@@ -20,54 +18,52 @@ scale = Vector2(3, 3)
 mouse_filter = 2
 script = ExtResource("1_qfg07")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.15
-anchor_top = 0.15
-anchor_right = 0.85
-anchor_bottom = 0.85
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_qfg07")
+texture = ExtResource("2_i06lu")
 
 [node name="WireContainer" type="Node2D" parent="."]
 z_index = 1
 
 [node name="Wire" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(154.667, 273)
+position = Vector2(353, 50.5)
 correct_target = NodePath("../../TargetsContainer/WireTarget")
 
 [node name="Wire2" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(239.333, 273)
+position = Vector2(353, 113.5)
 correct_target = NodePath("../../TargetsContainer/WireTarget2")
 
 [node name="Wire3" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(324, 273)
+position = Vector2(353, 177.5)
 correct_target = NodePath("../../TargetsContainer/WireTarget3")
 
 [node name="Wire4" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(409.667, 273)
+position = Vector2(353, 241.5)
 correct_target = NodePath("../../TargetsContainer/WireTarget4")
 
 [node name="Wire5" parent="WireContainer" node_paths=PackedStringArray("correct_target") instance=ExtResource("2_83wgo")]
-position = Vector2(488.667, 273)
+position = Vector2(353, 305.5)
 correct_target = NodePath("../../TargetsContainer/WireTarget5")
 
 [node name="TargetsContainer" type="Node2D" parent="."]
 
 [node name="WireTarget" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(151.667, 119.333)
+position = Vector2(540, 50.5)
 
 [node name="WireTarget2" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(232.667, 117.333)
+position = Vector2(540, 113.5)
 
 [node name="WireTarget3" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(318.333, 117.333)
+position = Vector2(540, 177.5)
 
 [node name="WireTarget4" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(407.667, 117.333)
+position = Vector2(540, 241.5)
 
 [node name="WireTarget5" parent="TargetsContainer" instance=ExtResource("3_y3fov")]
-position = Vector2(488.667, 118.333)
+position = Vector2(540, 305.5)

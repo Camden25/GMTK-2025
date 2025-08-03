@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://s3sv40ghwqiw"]
+
+[ext_resource type="Texture2D" uid="uid://d23kahphq8dfa" path="res://World/Assets/EngineRoom/sub-engine-room-normal.png" id="1_6p1qs"]
+[ext_resource type="Script" uid="uid://bmb6hebijf2c1" path="res://addons/ProCam2D/scripts/pcam_room.gd" id="2_c5hfy"]
+[ext_resource type="PackedScene" uid="uid://1wfgtt5km6v2" path="res://World/TaskSystem/Tasks/LightsOn/LightsOnTask.tscn" id="3_c5hfy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhbg1"]
+size = Vector2(640, 54)
+
+[node name="EngineRoom" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1.3, 1.1, 1.1, 1)
+z_index = -10
+texture = ExtResource("1_6p1qs")
+
+[node name="PCamRoom" type="Node2D" parent="."]
+script = ExtResource("2_c5hfy")
+room_size = Vector2(640, 360)
+zoom = 1.0
+open_sides = 0
+metadata/_custom_type_script = "uid://bmb6hebijf2c1"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 156)
+shape = SubResource("RectangleShape2D_qhbg1")
+
+[node name="LightsOnTask" parent="." instance=ExtResource("3_c5hfy")]
+position = Vector2(7, 53)

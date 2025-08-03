@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://1wfgtt5km6v2"]
+
+[ext_resource type="Script" uid="uid://cpir6hr4ouxqs" path="res://World/TaskSystem/Tasks/LightsOn/LightsOnTask.gd" id="1_ftsdn"]
+[ext_resource type="PackedScene" uid="uid://qmaf2qbi3v54" path="res://World/TaskSystem/Scenes/Interactable.tscn" id="2_ftsdn"]
+[ext_resource type="PackedScene" uid="uid://tcsd7rhcsq1e" path="res://World/TaskSystem/Tasks/LightsOn/LightsOnPopup.tscn" id="3_uqun3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqun3"]
+size = Vector2(94, 76)
+
+[node name="LightsOnTask" type="Node2D"]
+script = ExtResource("1_ftsdn")
+task_name = "Lights On"
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("node_trigger") instance=ExtResource("2_ftsdn")]
+node_trigger = NodePath("..")
+interaction_text = "Lights On"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 38)
+shape = SubResource("RectangleShape2D_uqun3")
+
+[node name="PopupUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LightsOnPopup" parent="PopupUI" node_paths=PackedStringArray("task") instance=ExtResource("3_uqun3")]
+process_mode = 3
+task = NodePath("../..")
