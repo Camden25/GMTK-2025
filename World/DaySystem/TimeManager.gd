@@ -35,6 +35,7 @@ func _process(delta: float) -> void:
 	formatted_time = format_time(int(current_time_minutes))
 
 func format_time(minutes: int) -> String:
+	@warning_ignore("integer_division")
 	var hrs: int = int(minutes / 60)
 	var mins: int = int(minutes) % 60
 	return "%02d:%02d" % [hrs, mins]

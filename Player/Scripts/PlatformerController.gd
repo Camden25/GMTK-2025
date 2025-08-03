@@ -91,6 +91,8 @@ var _was_on_ground: bool
 
 var acc: Vector2 = Vector2()
 
+var can_move: bool = true
+
 
 @onready var is_coyote_time_enabled: bool = coyote_time > 0
 @onready var is_jump_buffer_enabled: bool = jump_buffer > 0
